@@ -1,8 +1,7 @@
 <html>
     <script>
         window.onload = function() {
-            const d = localStorage.getItem("tutorialstate");
-            if (d = null) {
+            if(typeof(localStorage.getItem("tutorialstate"))=='undefined'){
                 window.location.href = "./tutorial/index.html";
             };
         };
