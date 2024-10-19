@@ -14,11 +14,10 @@
                         const container = document.getElementById("game-container");
                                 data.forEach((project) => {
                 const game = document.createElement("a");
-                game.href = project.text;
-                    game.className = "game-text container";
-                    game.innerHTML = `
-                    <h1>${project.name} - ${project.qid}`;
-                    container.appendChild(game);
+                game.className = "game-text container";
+                game.innerHTML = `
+                <h1>${project.name} - ${project.qid}`;
+                container.appendChild(game);
               });
               document.getElementById("loader").style.display = "none";
             })
