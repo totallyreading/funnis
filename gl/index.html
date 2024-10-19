@@ -1,25 +1,28 @@
 <html>
-    <script>
-        let games = [];
-        fetch("config/games.json")
-            .then((response) => response.json())
-                .then((data) => {
-                    games = data;
-                    const container = document.getElementById("game-container");
-                            data.forEach((project) => {
-            const game = document.createElement("a");
-            game.href = project.link;
-                game.className = "game-link container";
-                game.innerHTML = `
-                <h1>${project.name} - ${project.qid}`;
-                container.appendChild(game);
-          });
-          document.getElementById("loader").style.display = "none";
-        })
-        .catch((error) => console.error("Error:", error));
-    </script>
     <head>
         <j1>Games list. (No css cuz lazy, will fix later)</h1>
         <p>Game Name - Game ID</p>
     </head>
+    <body>
+        <div id="game-container" class="flex-container"></div>
+        <script>
+            let games = [];
+            fetch("./assets/json/g.json")
+                .then((response) => response.json())
+                    .then((data) => {
+                        games = data;
+                        const container = document.getElementById("game-container");
+                                data.forEach((project) => {
+                const game = document.createElement("a");
+                game.href = project.link;
+                    game.className = "game-link container";
+                    game.innerHTML = `
+                    <h1>${project.name} - ${project.qid}`;
+                    container.appendChild(game);
+              });
+              document.getElementById("loader").style.display = "none";
+            })
+            .catch((error) => console.error("Error:", error));
+        </script>
+    </body>
 </html>
